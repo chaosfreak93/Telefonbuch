@@ -5,9 +5,10 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+
     MainWindow w;
     w.setFocus();
-    w.setFixedSize(600, 415);
+    w.setFixedSize(300, 200);
     w.setWindowTitle("Telefonbuch");
     w.show();
 

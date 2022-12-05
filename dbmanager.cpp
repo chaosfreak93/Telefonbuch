@@ -17,16 +17,8 @@ DBManager::DBManager(const QString& path) {
 }
 
 void DBManager::createTelefonbuchTable() {
-    QString query;
-    query.append("CREATE TABLE IF NOT EXISTS telefonbuch("
-                    "id INTEGER PRIMARY KEY AUTOINCREMENT,"
-                    "name VARCHAR(100),"
-                    "surname VARCHAR(100),"
-                    "number INTEGER NOT NULL,"
-                    ");");
-
     QSqlQuery create;
-    create.prepare(query);
+    create.prepare("CREATE TABLE IF NOT EXISTS telefonbuch(id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(100), surname VARCHAR(100), number INTEGER NOT NULL);");
 
     if (create.exec()) {
         qDebug() << "Table exists or has been created";
@@ -34,4 +26,18 @@ void DBManager::createTelefonbuchTable() {
         qDebug() << "Table not exists or has not been created";
         qDebug() << "ERROR! " << create.lastError();
     }
+}
+
+QSqlQuery DBManager::fetchTelefonbuchEntries() {
+    QSqlQuery select;
+    select.prepare("SELECT * from telefonbuch");
+
+    if (!select.exec()) {
+        qDebug() << "ERROR! " << select.lastError();
+    }
+    return select;
+}
+
+void DBManager::insertEntry(QString name, QString surname, QString number) {
+
 }

@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <QSqlDatabase>
+#include <QSqlResult>
 
 using namespace std;
 
@@ -10,6 +11,9 @@ class DBManager {
     public:
         DBManager(const QString& path);
         void createTelefonbuchTable();
+        QSqlQuery fetchTelefonbuchEntries();
+        void insertEntry(QString name, QString surname, QString number);
+
     private:
         QSqlDatabase db;
 };
