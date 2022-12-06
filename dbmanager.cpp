@@ -18,7 +18,7 @@ DBManager::DBManager(const QString& path) {
 
 void DBManager::createTelefonbuchTable() {
     QSqlQuery create;
-    create.prepare("CREATE TABLE IF NOT EXISTS telefonbuch(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT(100), surname TEXT(100), number BIGINT NOT NULL);");
+    create.prepare("CREATE TABLE IF NOT EXISTS telefonbuch(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT(100) NOT NULL, surname TEXT(100) NOT NULL, number BIGINT NOT NULL);");
 
     if (create.exec()) {
         qDebug() << "Table exists or has been created";
@@ -39,32 +39,4 @@ QSqlQuery DBManager::fetchTelefonbuchEntries() {
         qDebug() << "ERROR! " << select.lastError();
     }
     return select;
-}
-
-void DBManager::insertEntry(QString name, QString surname, QString number) {
-    QSqlQuery insert;
-    insert.prepare("INSERT INTO telefonbuch (name, surname, number) VALUES(?, ?, ?);");
-    insert.addBindValue(name);
-    insert.addBindValue(surname);
-    insert.addBindValue(number.toLongLong());
-
-    if(insert.exec()){
-        qDebug() << "New Entry inserted";
-    } else {
-        qDebug() << "Entry cannot be inserted";
-        qDebug() << "ERROR! " << insert.lastError();
-    }
-}
-
-void DBManager::deleteById(int id) {
-    QSqlQuery remove;
-    remove.prepare("DELETE FROM telefonbuch WHERE id = ?;");
-    remove.addBindValue(id);
-
-    if(remove.exec()){
-        qDebug() << "Entry deleted";
-    } else {
-        qDebug() << "Entry cannot be deleted";
-        qDebug() << "ERROR! " << remove.lastError();
-    }
 }

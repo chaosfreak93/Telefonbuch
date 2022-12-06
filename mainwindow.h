@@ -1,16 +1,31 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <iostream>
+#include "dbmanager.h"
+#include "addperson.h"
+#include "removeperson.h"
+
 #include <QMainWindow>
 #include <QPushButton>
+#include <QList>
+#include <QString>
+#include <QMessageBox>
+#include <QInputDialog>
+#include <QCloseEvent>
 #include <QSqlQuery>
-#include "dbmanager.h"
+#include <QDebug>
 
 using namespace std;
 
 class MainWindow : public QMainWindow {
     Q_OBJECT
+
+    struct Person {
+        int id;
+        QString name;
+        QString surname;
+        qlonglong number;
+    };
 
     public:
         MainWindow(QWidget *parent = nullptr);
@@ -22,6 +37,9 @@ class MainWindow : public QMainWindow {
 
     private:
         DBManager* db;
+        QList<Person> telefonbuch;
+        AddPerson* addperson;
+        RemovePerson* removeperson;
 
     private slots:
         void ViewEntries();
