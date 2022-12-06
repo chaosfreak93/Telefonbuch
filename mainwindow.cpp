@@ -5,7 +5,7 @@
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 {
-    db = new DBManager("/home/yanlu/Schreibtisch/Coden/Telefonbuch/telefonbuch.db");
+    db = new DBManager("C:/Users/leya/OneDrive - SOCITAS GmbH & Co. KG/Desktop/Coden/Telefonbuch/telefonbuch.db");
     db->createTelefonbuchTable();
 
 
@@ -35,10 +35,11 @@ void MainWindow::ViewEntries() {
     QString liste;
     QSqlQuery query = db->fetchTelefonbuchEntries();
     while (query.next()) {
+        QString id = query.value(0).toString();
         QString name = query.value(1).toString();
         QString lastname = query.value(2).toString();
         QString number = "0" + query.value(3).toString();
-        liste += name + " " + lastname + " " + number + ",\n";
+        liste += id + " " + name + " " + lastname + " " + number + ",\n";
     }
     QMessageBox msgBox;
     msgBox.setText(liste);
@@ -70,8 +71,17 @@ void MainWindow::AddEntry() {
                                            "", &numberOk);
     if (!numberOk || number.isEmpty())
         return;
+
+    db->insertEntry(name, surname, number);
 }
 
 void MainWindow::RemoveEntry() {
+    bool idOk;
+    int id = QInputDialog::getInt(this, tr("Remove Entry"),
+                                           tr("ID:"), 0, 0, 2147483647, 1,
+                                            &idOk);
+    if (!idOk)
+        return;
 
+    db->deleteById(id);
 }

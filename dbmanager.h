@@ -13,6 +13,7 @@ class DBManager {
         void createTelefonbuchTable();
         QSqlQuery fetchTelefonbuchEntries();
         void insertEntry(QString name, QString surname, QString number);
+        void deleteById(int id);
 
     private:
         QSqlDatabase db;
