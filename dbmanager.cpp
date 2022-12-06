@@ -1,10 +1,5 @@
 #include "dbmanager.h"
 
-#include <QDebug>
-#include <QString>
-#include <QSqlQuery>
-#include <QSqlError>
-
 DBManager::DBManager(const QString& path) {
    db = QSqlDatabase::addDatabase("QSQLITE");
    db.setDatabaseName(path);
