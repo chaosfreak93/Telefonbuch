@@ -13,7 +13,7 @@ DBManager::DBManager(const QString& path) {
 
 void DBManager::createTelefonbuchTable() {
     QSqlQuery create;
-    create.prepare("CREATE TABLE IF NOT EXISTS telefonbuch(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT(100) NOT NULL, surname TEXT(100) NOT NULL, number BIGINT NOT NULL);");
+    create.prepare("CREATE TABLE IF NOT EXISTS telefonbuch(id INTEGER PRIMARY KEY, name TEXT(100) NOT NULL, surname TEXT(100) NOT NULL, number BIGINT NOT NULL);");
 
     if (create.exec()) {
         qDebug() << "Table exists or has been created";

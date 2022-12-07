@@ -29,15 +29,15 @@ class MainWindow : public QMainWindow {
 
     public:
         MainWindow(QWidget *parent = nullptr);
+        static QList<Person> telefonbuch;
+
+    private:
+        DBManager* db;
         QPushButton* view;
         QPushButton* sort;
         QPushButton* add;
         QPushButton* remove;
         QPushButton* exit;
-
-    private:
-        DBManager* db;
-        QList<Person> telefonbuch;
         AddPerson* addperson;
         RemovePerson* removeperson;
 

@@ -1,15 +1,33 @@
 #include "removeperson.h"
+#include "mainwindow.h"
 
 RemovePerson::RemovePerson(QWidget *parent) : QMainWindow{parent} {
-    closeBtn = new QPushButton(this);
-    closeBtn->setGeometry(QRect(150, 260, 100, 40));
-    closeBtn->setText("Close (Remove)");
+    list = new QListWidget(this);
+    list->setGeometry(QRect(50, 15, 300, 240));
+    for (int i = 0; i < MainWindow::telefonbuch.size(); i++) {
+        list->addItem(MainWindow::telefonbuch[i].name + " " + MainWindow::telefonbuch[i].surname + ", 0" + QString::number(MainWindow::telefonbuch[i].number));
+    }
+    list->update();
 
-    connect(closeBtn, SIGNAL(clicked()), this, SLOT(CloseWindow()));
+    removeBtn = new QPushButton(this);
+    removeBtn->setGeometry(QRect(100, 260, 100, 40));
+    removeBtn->setText("Remove");
 
-    //TODO: List Select
+    cancelBtn = new QPushButton(this);
+    cancelBtn->setGeometry(QRect(200, 260, 100, 40));
+    cancelBtn->setText("Cancel");
+
+    connect(removeBtn, SIGNAL(clicked()), this, SLOT(PressedRemoveButton()));
+    connect(cancelBtn, SIGNAL(clicked()), this, SLOT(PressedCancelButton()));
 }
 
-void RemovePerson::CloseWindow() {
+void RemovePerson::PressedRemoveButton() {
+    if(list->currentIndex().row() != -1) {
+        MainWindow::telefonbuch.removeAt(list->currentIndex().row());
+    }
+    close();
+}
+
+void RemovePerson::PressedCancelButton() {
     close();
 }

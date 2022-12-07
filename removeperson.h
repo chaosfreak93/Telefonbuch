@@ -2,6 +2,7 @@
 #define REMOVEPERSON_H
 
 #include <QMainWindow>
+#include <QListWidget>
 #include <QPushButton>
 
 using namespace std;
@@ -11,10 +12,13 @@ class RemovePerson : public QMainWindow {
 
     public:
         explicit RemovePerson(QWidget *parent = nullptr);
-        QPushButton* closeBtn;
+        QListWidget* list;
+        QPushButton* removeBtn;
+        QPushButton* cancelBtn;
 
     private slots:
-        void CloseWindow();
+        void PressedRemoveButton();
+        void PressedCancelButton();
 };
 
 #endif // REMOVEPERSON_H

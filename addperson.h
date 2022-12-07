@@ -2,6 +2,7 @@
 #define ADDPERSON_H
 
 #include <QMainWindow>
+#include <QLineEdit>
 #include <QPushButton>
 
 using namespace std;
@@ -10,10 +11,15 @@ class AddPerson : public QMainWindow {
     Q_OBJECT
     public:
         explicit AddPerson(QWidget *parent = nullptr);
-        QPushButton* closeBtn;
+        QLineEdit* name;
+        QLineEdit* surname;
+        QLineEdit* number;
+        QPushButton* addBtn;
+        QPushButton* cancelBtn;
 
     private slots:
-        void CloseWindow();
+        void PressedAddButton();
+        void PressedCancelButton();
 };
 
 #endif // ADDPERSON_H
