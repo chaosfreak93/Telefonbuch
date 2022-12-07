@@ -68,5 +68,7 @@ void MainWindow::RemoveEntry() {
 }
 
 void MainWindow::closeEvent(QCloseEvent *event) {
+    event->ignore();
     db->saveToFile();
+    event->accept();
 }
