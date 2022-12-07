@@ -20,7 +20,6 @@ class MainWindow : public QMainWindow {
     Q_OBJECT
 
     struct Person {
-        int id;
         QString name;
         QString surname;
         qlonglong number;

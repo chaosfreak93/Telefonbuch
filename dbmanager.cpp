@@ -26,7 +26,7 @@ void DBManager::createTelefonbuchTable() {
 
 QSqlQuery DBManager::fetchTelefonbuchEntries() {
     QSqlQuery select;
-    select.prepare("SELECT * FROM telefonbuch;");
+    select.prepare("SELECT name, surname, number FROM telefonbuch;");
 
     if (select.exec()) {
         qDebug() << "Data has been selected";

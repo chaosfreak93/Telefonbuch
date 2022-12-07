@@ -29,7 +29,7 @@ AddPerson::AddPerson(QWidget *parent) : QMainWindow{parent} {
 
 void AddPerson::PressedAddButton() {
     if (!name->text().isEmpty() && !surname->text().isEmpty() && (!number->text().isEmpty() && number->text().toLongLong() > 0)) {
-        MainWindow::telefonbuch.append({(int)MainWindow::telefonbuch.size() - 1, name->text(), surname->text(), number->text().toLongLong()});
+        MainWindow::telefonbuch.append({name->text(), surname->text(), number->text().toLongLong()});
         close();
     }
 }

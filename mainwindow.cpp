@@ -7,7 +7,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     db->createTelefonbuchTable();
     QSqlQuery query = db->fetchTelefonbuchEntries();
     while (query.next()) {
-        telefonbuch.append({query.value(0).toInt(), query.value(1).toString(), query.value(2).toString(), query.value(3).toLongLong()});
+        telefonbuch.append({query.value(0).toString(), query.value(1).toString(), query.value(2).toLongLong()});
     }
 
     view = new QPushButton(this);
