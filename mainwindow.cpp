@@ -33,7 +33,13 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
 }
 
 void MainWindow::ViewEntries() {
-
+    viewpersons = new ViewPersons();
+    viewpersons->setFocus();
+    viewpersons->setFixedSize(400, 300);
+    viewpersons->setWindowTitle("View Persons");
+    viewpersons->setWindowFlag(Qt::WindowMaximizeButtonHint, false);
+    viewpersons->setWindowFlag(Qt::WindowCloseButtonHint, false);
+    viewpersons->show();
 }
 
 void MainWindow::SortEntries() {

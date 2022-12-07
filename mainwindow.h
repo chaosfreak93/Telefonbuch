@@ -4,6 +4,7 @@
 #include "dbmanager.h"
 #include "addperson.h"
 #include "removeperson.h"
+#include "viewpersons.h"
 
 #include <QMainWindow>
 #include <QPushButton>
@@ -40,6 +41,7 @@ class MainWindow : public QMainWindow {
         QPushButton* exit;
         AddPerson* addperson;
         RemovePerson* removeperson;
+        ViewPersons* viewpersons;
 
     private slots:
         void ViewEntries();

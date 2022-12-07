@@ -13,13 +13,15 @@ SOURCES += \
     dbmanager.cpp \
     main.cpp \
     mainwindow.cpp \
-    removeperson.cpp
+    removeperson.cpp \
+    viewpersons.cpp
 
 HEADERS += \
     addperson.h \
     dbmanager.h \
     mainwindow.h \
-    removeperson.h
+    removeperson.h \
+    viewpersons.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
