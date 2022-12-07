@@ -26,8 +26,10 @@ void RemovePerson::PressedRemoveButton() {
         MainWindow::telefonbuch.removeAt(list->currentIndex().row());
     }
     close();
+    destroy();
 }
 
 void RemovePerson::PressedCancelButton() {
     close();
+    destroy();
 }

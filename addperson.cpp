@@ -31,9 +31,11 @@ void AddPerson::PressedAddButton() {
     if (!name->text().isEmpty() && !surname->text().isEmpty() && (!number->text().isEmpty() && number->text().toLongLong() > 0)) {
         MainWindow::telefonbuch.append({name->text(), surname->text(), number->text().toLongLong()});
         close();
+        destroy();
     }
 }
 
 void AddPerson::PressedCancelButton() {
     close();
+    destroy();
 }

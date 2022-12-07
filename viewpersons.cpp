@@ -18,4 +18,5 @@ ViewPersons::ViewPersons(QWidget *parent) : QMainWindow{parent} {
 
 void ViewPersons::PressedCloseButton() {
     close();
+    destroy();
 }
