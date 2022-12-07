@@ -12,6 +12,8 @@ class RemovePerson : public QMainWindow {
 
     public:
         explicit RemovePerson(QWidget *parent = nullptr);
+
+    private:
         QListWidget* list;
         QPushButton* removeBtn;
         QPushButton* cancelBtn;

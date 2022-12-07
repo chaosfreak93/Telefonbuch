@@ -11,6 +11,8 @@ class AddPerson : public QMainWindow {
     Q_OBJECT
     public:
         explicit AddPerson(QWidget *parent = nullptr);
+
+    private:
         QLineEdit* name;
         QLineEdit* surname;
         QLineEdit* number;
