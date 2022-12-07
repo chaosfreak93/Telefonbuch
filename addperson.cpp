@@ -30,22 +30,32 @@ AddPerson::AddPerson(QWidget *parent) : QMainWindow{parent} {
 void AddPerson::PressedAddButton() {
     if (!name->text().isEmpty() && !surname->text().isEmpty() && (!number->text().isEmpty() && number->text().toLongLong() > 0)) {
         MainWindow::telefonbuch.append({name->text(), surname->text(), number->text().toLongLong()});
-        name = nullptr;
-        surname = nullptr;
-        number = nullptr;
-        addBtn = nullptr;
-        cancelBtn = nullptr;
-        close();
+        name->deleteLater();
+        delete name;
+        surname->deleteLater();
+        delete surname;
+        number->deleteLater();
+        delete number;
+        addBtn->deleteLater();
+        delete addBtn;
+        cancelBtn->deleteLater();
+        delete cancelBtn;
+        deleteLater();
         destroy();
     }
 }
 
 void AddPerson::PressedCancelButton() {
-    name = nullptr;
-    surname = nullptr;
-    number = nullptr;
-    addBtn = nullptr;
-    cancelBtn = nullptr;
-    close();
+    name->deleteLater();
+    delete name;
+    surname->deleteLater();
+    delete surname;
+    number->deleteLater();
+    delete number;
+    addBtn->deleteLater();
+    delete addBtn;
+    cancelBtn->deleteLater();
+    delete cancelBtn;
+    deleteLater();
     destroy();
 }
