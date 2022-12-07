@@ -17,6 +17,9 @@ ViewPersons::ViewPersons(QWidget *parent) : QMainWindow{parent} {
 }
 
 void ViewPersons::PressedCloseButton() {
+    list->clear();
+    list = nullptr;
+    closeBtn = nullptr;
     close();
     destroy();
 }

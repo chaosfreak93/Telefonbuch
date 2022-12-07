@@ -25,11 +25,19 @@ void RemovePerson::PressedRemoveButton() {
     if(list->currentIndex().row() != -1) {
         MainWindow::telefonbuch.removeAt(list->currentIndex().row());
     }
+    list->clear();
+    list = nullptr;
+    removeBtn = nullptr;
+    cancelBtn = nullptr;
     close();
     destroy();
 }
 
 void RemovePerson::PressedCancelButton() {
+    list->clear();
+    list = nullptr;
+    removeBtn = nullptr;
+    cancelBtn = nullptr;
     close();
     destroy();
 }
