@@ -10,8 +10,6 @@
 #include <QPushButton>
 #include <QList>
 #include <QString>
-#include <QMessageBox>
-#include <QInputDialog>
 #include <QCloseEvent>
 #include <QSqlQuery>
 #include <QDebug>

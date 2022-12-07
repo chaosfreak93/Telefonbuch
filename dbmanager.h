@@ -1,13 +1,11 @@
 #ifndef DBMANAGER_H
 #define DBMANAGER_H
 
-#include <iostream>
 #include <QSqlDatabase>
 #include <QSqlResult>
 #include <QDebug>
 #include <QString>
 #include <QSqlQuery>
-#include <QSqlError>
 
 using namespace std;
 
