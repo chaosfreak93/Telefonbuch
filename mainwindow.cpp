@@ -3,7 +3,7 @@
 QList<MainWindow::Person> MainWindow::telefonbuch{};
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
-    db = new DBManager("C:\\Users\\leya\\OneDrive - SOCITAS GmbH & Co. KG\\Desktop\\Coden\\Telefonbuch\\telefonbuch.db");
+    db = new DBManager("./telefonbuch.db");
     db->createTelefonbuchTable();
     QSqlQuery query = db->fetchTelefonbuchEntries();
     while (query.next()) {

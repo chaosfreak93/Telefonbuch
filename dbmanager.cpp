@@ -40,7 +40,7 @@ QSqlQuery DBManager::fetchTelefonbuchEntries() {
 void DBManager::saveToFile() {
     QSqlQuery drop;
     drop.prepare("DELETE FROM telefonbuch;");
-    if(drop.exec()) qDebug() << "Table cleared!";
+    if(drop.exec()) qDebug() << "Table cleared";
 
     for (int i = 0; i < MainWindow::telefonbuch.size(); i++) {
         QSqlQuery insert;
@@ -49,6 +49,6 @@ void DBManager::saveToFile() {
         insert.addBindValue(MainWindow::telefonbuch[i].name);
         insert.addBindValue(MainWindow::telefonbuch[i].surname);
         insert.addBindValue(MainWindow::telefonbuch[i].number);
-        if(insert.exec()) qDebug() << "Data inserted!";
+        if(insert.exec()) qDebug() << "Data inserted";
     }
 }
