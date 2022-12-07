@@ -65,3 +65,7 @@ void MainWindow::RemoveEntry() {
     removeperson->setWindowFlag(Qt::WindowCloseButtonHint, false);
     removeperson->show();
 }
+
+void MainWindow::closeEvent(QCloseEvent *event) {
+    db->saveToFile();
+}

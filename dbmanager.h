@@ -16,6 +16,7 @@ class DBManager {
         DBManager(const QString& path);
         void createTelefonbuchTable();
         QSqlQuery fetchTelefonbuchEntries();
+        void saveToFile();
 
     private:
         QSqlDatabase db;

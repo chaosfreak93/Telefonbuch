@@ -1,4 +1,5 @@
 #include "dbmanager.h"
+#include "mainwindow.h"
 
 DBManager::DBManager(const QString& path) {
    db = QSqlDatabase::addDatabase("QSQLITE");
@@ -34,4 +35,20 @@ QSqlQuery DBManager::fetchTelefonbuchEntries() {
         qDebug() << "ERROR! " << select.lastError();
     }
     return select;
+}
+
+void DBManager::saveToFile() {
+    QSqlQuery drop;
+    drop.prepare("DELETE FROM telefonbuch;");
+    if(drop.exec()) qDebug() << "Table cleared!";
+
+    for (int i = 0; i < MainWindow::telefonbuch.size(); i++) {
+        QSqlQuery insert;
+        insert.prepare("INSERT INTO telefonbuch (id, name, surname, number) VALUES (?, ?, ?, ?);");
+        insert.addBindValue(i);
+        insert.addBindValue(MainWindow::telefonbuch[i].name);
+        insert.addBindValue(MainWindow::telefonbuch[i].surname);
+        insert.addBindValue(MainWindow::telefonbuch[i].number);
+        if(insert.exec()) qDebug() << "Data inserted!";
+    }
 }

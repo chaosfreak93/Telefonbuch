@@ -11,7 +11,7 @@ ViewPersons::ViewPersons(QWidget *parent) : QMainWindow{parent} {
 
     closeBtn = new QPushButton(this);
     closeBtn->setGeometry(QRect(150, 260, 100, 40));
-    closeBtn->setText("CLose");
+    closeBtn->setText("Close");
 
     connect(closeBtn, SIGNAL(clicked()), this, SLOT(PressedCloseButton()));
 }

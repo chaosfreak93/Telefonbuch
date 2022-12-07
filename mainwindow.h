@@ -31,6 +31,7 @@ class MainWindow : public QMainWindow {
     public:
         MainWindow(QWidget *parent = nullptr);
         static QList<Person> telefonbuch;
+        void closeEvent(QCloseEvent *event);
 
     private:
         DBManager* db;
