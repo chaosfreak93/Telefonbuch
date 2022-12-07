@@ -14,6 +14,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     removeperson.cpp \
+    sortpersons.cpp \
     viewpersons.cpp
 
 HEADERS += \
@@ -21,6 +22,7 @@ HEADERS += \
     dbmanager.h \
     mainwindow.h \
     removeperson.h \
+    sortpersons.h \
     viewpersons.h
 
 # Default rules for deployment.
