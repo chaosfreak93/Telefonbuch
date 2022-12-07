@@ -4,8 +4,8 @@
 ViewPersons::ViewPersons(QWidget *parent) : QMainWindow{parent} {
     list = new QListWidget(this);
     list->setGeometry(QRect(50, 15, 300, 240));
-    for (int i = 0; i < MainWindow::telefonbuch.size(); i++) {
-        list->addItem(MainWindow::telefonbuch[i].name + " " + MainWindow::telefonbuch[i].surname + ", 0" + QString::number(MainWindow::telefonbuch[i].number));
+    for (const auto &person: MainWindow::telefonbuch) {
+        list->addItem(person.name + " " + person.surname + ", 0" + QString::number(person.number));
     }
     list->update();
 
