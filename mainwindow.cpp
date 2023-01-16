@@ -17,7 +17,6 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     sort = new QPushButton(this);
     sort->setGeometry(QRect(150, 60, 80, 40));
     sort->setText("Sort Entries");
-    sort->setDisabled(true);
 
     add = new QPushButton(this);
     add->setGeometry(QRect(70, 100, 80, 40));
@@ -44,7 +43,13 @@ void MainWindow::ViewEntries() {
 }
 
 void MainWindow::SortEntries() {
-
+    sortperson = new SortPersons();
+    sortperson->setFocus();
+    sortperson->setFixedSize(400, 300);
+    sortperson->setWindowTitle("Sort Persons");
+    sortperson->setWindowFlag(Qt::WindowMaximizeButtonHint, false);
+    sortperson->setWindowFlag(Qt::WindowCloseButtonHint, false);
+    sortperson->show();
 }
 
 void MainWindow::AddEntry() {

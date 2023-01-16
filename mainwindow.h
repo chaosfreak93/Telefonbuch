@@ -5,6 +5,7 @@
 #include "addperson.h"
 #include "removeperson.h"
 #include "viewpersons.h"
+#include "sortpersons.h"
 
 #include <QMainWindow>
 #include <QPushButton>
@@ -19,14 +20,13 @@ using namespace std;
 class MainWindow : public QMainWindow {
     Q_OBJECT
 
-    struct Person {
-        QString name;
-        QString surname;
-        qlonglong number;
-    };
-
     public:
         MainWindow(QWidget *parent = nullptr);
+        struct Person {
+            QString name;
+            QString surname;
+            qlonglong number;
+        };
         static QList<Person> telefonbuch;
         void closeEvent(QCloseEvent *event);
 
@@ -40,6 +40,7 @@ class MainWindow : public QMainWindow {
         AddPerson* addperson;
         RemovePerson* removeperson;
         ViewPersons* viewpersons;
+        SortPersons* sortperson;
 
     private slots:
         void ViewEntries();
